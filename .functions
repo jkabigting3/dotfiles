@@ -1,21 +1,3 @@
-# Open Man page in Preview
-pman() 
-{
-  man -t $@ | open -f -a /Applications/Preview.app
-}
-
-# Open man page in textmate
-tman () 
-{
-  MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
-}
-
-# Open man page in Sublime Text
-sman()
-{
-    man $@ | col -b | open -f -a /Applications/Sublime\ Text\ 3.app/Contents/MacOS/Sublime\ Text
-}
-
 # launch a webserver that serves the current directory
 # with the default port 8080 or whatever port is specified
 # as an optional argument
@@ -45,11 +27,6 @@ key()
 #  mkdir -p "$@" && cd "$@"
 #}
 
-# print to the CS Lab printer in FEC309
-printlab()
-{
-  ssh stharding@moons "lp -d fec309" < "$1"
-}
 
 # returns a URL which contains the file given as an arg
 sprunge() # Takes a file and returns a url which has the contents of the file.
@@ -70,15 +47,21 @@ quiet()
   TMP=$(history | tail -1 | awk '{print $1}') && history -d $TMP && $@
 }
 
-
-google() 
-{ 
-  open /Applications/Google\ Chrome.app/ "http://www.google.com/search?q=$1"; 
+# Runs tomcat9 startup
+tomcat_startup()
+{
+    cd /opt/tomcat9
+    sudo ./bin/startup.sh
+    cd -
 }
 
-wiki() 
-{ 
-  open /Applications/Google\ Chrome.app/ \
-  "http://en.wikipedia.org/wiki/Special:Search?search= $1";
+# Runs tomcat9 shutdown
+tomcat_shutdown()
+{
+    cd /opt/tomcat9
+    sudo ./bin/shutdown.sh
+    cd -
 }
 
+# Remove lines from zsh history
+histrm() { LC_ALL=C sed -i '/$1/d' $HISTFILE }

@@ -22,3 +22,4 @@ export QUICK_LISP=~/quicklisp
 export LISP_STACK=$((30*1024))
 export HISTFILESIZE=9000
 export HISTSIZE=9000
+source $MOCUHOME/mocu/scripts/ubuntu14/mocu_env_vars.sh
