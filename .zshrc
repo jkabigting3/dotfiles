@@ -12,9 +12,11 @@ DEFAULT_USER=$(whoami)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github colorize colored-man zsh-syntax-highlighting)
+plugins=(git github colorize colored-man-pages zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+setopt EXTENDED_GLOB
 
 ## never ever beep ever
 setopt NO_BEEP
@@ -55,4 +57,6 @@ CATALINA_HOME=$HOME/apache-tomcat-7.0.79
 export CATALINA_HOME
 
 source $HOME/env_vars/mocu_env_vars.sh
+
+export CSCAPE=$MOCUHOME/ui/ui_cscape
 

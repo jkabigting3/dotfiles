@@ -65,3 +65,10 @@ tomcat_shutdown()
 
 # Remove lines from zsh history
 histrm() { LC_ALL=C sed -i '/$1/d' $HISTFILE }
+
+# Recursively runs csscomb on all .css files excluding node_modules directories
+comb_pls()
+{
+    for i ((^node_modules/)#/*.css) csscomb $i
+}
+

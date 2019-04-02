@@ -1,8 +1,5 @@
 #!/usr/env zsh
 
-# command line speedtest
-alias speed="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
-
 # Limit ping to 5 pings
 alias ping="ping -c 5"
 
@@ -12,3 +9,11 @@ alias la="ls -a"
 alias lla="ls -al"
 alias l="ls"
 alias sl="ls" # because I am always doing this ...
+
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+
+alias cscape="cd ~/mocu_ws/dist && npm start -- --ui=ui_cscape"
+alias build_cscape="cd ~/mocu_ws/ui/ui_cscape && npm run build"
+alias rebuild_npm="rm -rf node_modules && npm install"
+
